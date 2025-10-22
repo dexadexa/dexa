@@ -1,0 +1,178 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "NotOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroAddress",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnerChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "phoneHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "UserRegistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "phoneHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "UserUnregistered",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "phone",
+          "type": "string"
+        }
+      ],
+      "name": "phoneHash",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "phone",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "registerUser",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "phone",
+          "type": "string"
+        }
+      ],
+      "name": "resolve",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "setOwner",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "phone",
+          "type": "string"
+        }
+      ],
+      "name": "unregisterUser",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600e575f5ffd5b50604051610609380380610609833981016040819052602b91608b565b6001600160a01b03811615603e57806040565b335b5f80546001600160a01b0319166001600160a01b039290921691821781556040517fb532073b38c83145e3e5135377a08bf9aab55bc0fd7c1179cd4fb995d2a5159c908290a35060b6565b5f60208284031215609a575f5ffd5b81516001600160a01b038116811460af575f5ffd5b9392505050565b610546806100c35f395ff3fe608060405234801561000f575f5ffd5b5060043610610060575f3560e01c80630e54b8721461006457806313af403514610079578063170708b01461008c578063357b8fef146100b2578063461a4478146100c55780638da5cb5b146100f0575b5f5ffd5b610077610072366004610455565b610102565b005b6100776100873660046104a0565b6101b7565b61009f61009a3660046104c0565b610261565b6040519081526020015b60405180910390f35b6100776100c03660046104c0565b610290565b6100d86100d33660046104c0565b61036f565b6040516001600160a01b0390911681526020016100a9565b5f546100d8906001600160a01b031681565b5f546001600160a01b0316331461012c576040516330cd747160e01b815260040160405180910390fd5b6001600160a01b0381166101535760405163d92e233d60e01b815260040160405180910390fd5b5f61015d83610261565b5f8181526001602052604080822080546001600160a01b0319166001600160a01b03871690811790915590519293509183917ff62ba47fe3ff610889160f02571396e86e21b7aadcbde2719192e206853b331f91a3505050565b5f546001600160a01b031633146101e1576040516330cd747160e01b815260040160405180910390fd5b6001600160a01b0381166102085760405163d92e233d60e01b815260040160405180910390fd5b5f80546040516001600160a01b03808516939216917fb532073b38c83145e3e5135377a08bf9aab55bc0fd7c1179cd4fb995d2a5159c91a35f80546001600160a01b0319166001600160a01b0392909216919091179055565b5f8160405160200161027391906104fa565b604051602081830303815290604052805190602001209050919050565b5f546001600160a01b031633146102ba576040516330cd747160e01b815260040160405180910390fd5b5f6102c482610261565b5f818152600160205260409020549091506001600160a01b03168061031c5760405162461bcd60e51b815260206004820152600a6024820152694e6f206d617070696e6760b01b604482015260640160405180910390fd5b5f8281526001602052604080822080546001600160a01b0319169055516001600160a01b0383169184917f6982b4d2333cc4fce28b522066b0a5eaa18c582a87f4f774d49a55005980d6f19190a3505050565b5f60015f61037c84610261565b815260208101919091526040015f20546001600160a01b031692915050565b634e487b7160e01b5f52604160045260245ffd5b5f82601f8301126103be575f5ffd5b813567ffffffffffffffff8111156103d8576103d861039b565b604051601f8201601f19908116603f0116810167ffffffffffffffff811182821017156104075761040761039b565b60405281815283820160200185101561041e575f5ffd5b816020850160208301375f918101602001919091529392505050565b80356001600160a01b0381168114610450575f5ffd5b919050565b5f5f60408385031215610466575f5ffd5b823567ffffffffffffffff81111561047c575f5ffd5b610488858286016103af565b9250506104976020840161043a565b90509250929050565b5f602082840312156104b0575f5ffd5b6104b98261043a565b9392505050565b5f602082840312156104d0575f5ffd5b813567ffffffffffffffff8111156104e6575f5ffd5b6104f2848285016103af565b949350505050565b5f82518060208501845e5f92019182525091905056fea26469706673582212209b5a7620e9211a0c68494c6550b7ae1a0165ba7644dc3c215b85be4ac20e65d464736f6c634300081e0033"
+}
