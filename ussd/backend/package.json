@@ -1,0 +1,39 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc -w & nodemon dist/index.js",
+    "db:dump": "mongodump --uri=\"$MONGODB_URI\" --out ./backups/$(date +%Y%m%d%H%M%S)",
+    "db:restore": "sh -c 'if [ -z \"$DIR\" ]; then echo \"Set DIR=./backups/<folder>\"; else mongorestore --uri=\"$MONGODB_URI\" \"$DIR\"; fi'",
+    "deploy:erc20": "node scripts/deploy-erc20.js --supply 1000000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "africastalking": "^0.7.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ethers": "^6.15.0",
+    "express": "^4.21.2",
+    "mongoose": "^8.12.1",
+    "nodemon": "^3.1.9",
+    "openai": "^4.89.0",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.26.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/africastalking": "^0.6.2",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.13.10",
+    "@types/semver": "^7.7.1",
+    "mongodb-memory-server": "^10.2.3",
+    "solc": "^0.8.30",
+    "typescript": "^5.8.2"
+  }
+}
