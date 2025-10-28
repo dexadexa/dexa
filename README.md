@@ -22,7 +22,6 @@ DeXa brings Hedera (EVM) to people with no internet or very low bandwidth by usi
 - `ussd/` — Vite + React UI for showcasing the USSD/SMS experience and related assets. Includes a placeholder backend folder for USSD/SMS gateways.
 - `whatsapp/` — TypeScript Node service integrating Twilio WhatsApp, Prisma/PostgreSQL, and Hedera EVM (ethers v6). Includes tests and simple contract tooling.
 
-Each subproject has its own README with deeper details. This root README gives a cohesive overview and quickstart.
 
 
 <p align="center">
