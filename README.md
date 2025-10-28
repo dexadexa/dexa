@@ -1,7 +1,7 @@
 # DeXa — USSD & WhatsApp Hedera Last‑Mile Access in the Global South
 
 <p align="center">
-  <img src="dexa-ussd/src/assets/dexa-logo.svg" alt="DeXa Logo" width="140" />
+  <img src="ussd/src/assets/dexa-logo.svg" alt="DeXa Logo" width="140" />
 </p>
 
 <p align="center">
@@ -26,7 +26,7 @@ Each subproject has its own README with deeper details. This root README gives a
 
 
 <p align="center">
-  <img src="dexa-ussd/src/assets/dexa2.png" alt="DeXa architecture overview" width="640" />
+  <img src="ussd/src/assets/dexa2.png" alt="DeXa architecture overview" width="640" />
 </p>
 
 ---
