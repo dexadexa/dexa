@@ -231,7 +231,7 @@ Tip: In production, ensure HTTPS, IP allowlists (if required), proper secrets ma
 
 ---
 
-## Smart contracts (optional)
+## Smart contracts
 
 Basic scripts are provided to compile and deploy an example `UserRegistry` Solidity contract (for phone→address mapping):
 
@@ -281,7 +281,7 @@ pnpm test:watch   # watch mode
 
 ---
 
-## Roadmap (abridged)
+## Roadmap
 
 - Enriched USSD production backend via regional gateways
 - Full group treasury and refunds on Hedera contracts
