@@ -187,7 +187,7 @@ Note: Update WEBHOOK_URL to the exact public URL Twilio will call (including pat
 
 ---
 
-## WhatsApp/Twilio webhook setup (conceptual)
+## WhatsApp/Twilio webhook setup
 
 - Expose the running service publicly (e.g., with a reverse proxy or tunneling during dev)
 - Configure Twilio WhatsApp sandbox/number to POST to your webhook endpoint
