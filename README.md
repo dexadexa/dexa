@@ -40,27 +40,67 @@ DeXa brings Hedera (EVM) to people with no internet or very low bandwidth by usi
 
 ---
 
-## Architecture (high level)
+## System Architecture
 
 ```
-┌───────────────┐    USSD/SMS    ┌───────────────────────┐
-│  Feature/USSD │◄──────────────►│  USSD/SMS Gateway(s)  │  (Africa's Talking, local telcos)
-└───────────────┘                └────────┬──────────────┘
-                                          │
-                                          ▼
-                                   ┌───────────────┐   WhatsApp/Twilio webhooks
-                                   │  ussd    │   and REST API
-                                   │  (backend UI) │◄─────────────────────┐
-                                   └───────────────┘                      │
-                                                                         ▼
-                                                                  ┌───────────────┐
-                                                                  │ whatsapp │  Node + TS
-                                                                  │  (Twilio, DB) │──────────────┐
-                                                                  └───────────────┘              │
-                                                                                                 ▼
-                                                                                          ┌────────────┐
-                                                                                          │  Hedera    │  (EVM RPC, contracts)
-                                                                                          └────────────┘
+┌───────────────────────┐                    ┌────────────────────┐
+│ Feature phone user    │                    │ Smartphone user     │
+│ (USSD/SMS)            │                    │ (WhatsApp)         │
+└──────────┬────────────┘                    └─────────┬──────────┘
+           │ USSD/SMS                                   │ WhatsApp
+           ▼                                            ▼
+┌──────────────────────────────┐             ┌─────────────────────────┐
+│ USSD/SMS Gateway             │             │ Twilio WhatsApp API     │
+│ (e.g., Africa's Talking)     │◄───────────►│ (webhooks + outbound)   │
+└──────────┬───────────────────┘             └──────────┬──────────────┘
+           │ HTTP (USSD callbacks)                      │ Webhook POST
+           ▼                                            ▼
+┌──────────────────────────────┐             ┌─────────────────────────┐
+│ USSD Backend                 │             │ WhatsApp Bot Service    │
+│ (Node/Express, MongoDB)      │             │ (Node/TS, Express,      │
+│                              │             │  Prisma, PostgreSQL)    │
+└──────────┬───────────┬───────┘             └──────────┬──────────────┘
+           │           └─────► MongoDB                 PostgreSQL ◄────┘
+           │
+           ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│ Hedera EVM                                                           │
+│ (JSON-RPC via ethers.js, Hashio RPC; optional smart contracts)       │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+## Data Flow
+
+```
+WhatsApp P2P Payment (HBAR)
+
+[User] -> [WhatsApp] -> [Twilio] -> [WhatsApp Bot]
+                                  |
+                                  v
+                             [PostgreSQL]
+                                  |
+                                  v
+                        (ethers.js JSON-RPC)
+                                  |
+                               [Hedera EVM]
+                                  |
+                                  v
+[User] <- [Twilio] <- [WhatsApp Bot] (tx receipt persisted + outbound reply)
+
+
+USSD HBAR Send
+
+[Feature Phone] -> [USSD/SMS Gateway] -> [USSD Backend]
+                                         |           \
+                                         v            \
+                                     [MongoDB]         \
+                                                        v
+                                         (ethers.js JSON-RPC)
+                                                        |
+                                                     [Hedera EVM]
+                                                        |
+                                                        v
+[Feature Phone] <- [USSD/SMS Gateway] <- [USSD Backend] (tx status + reply)
 ```
 
 ---
