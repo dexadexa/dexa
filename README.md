@@ -12,6 +12,9 @@
   <a href="dexa-whatsapp/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue"></a>
 </p>
 
+[📄 View the Pitch Deck (PDF)](./documents/pitch.pdf)
+
+[📄 View the Developer Certificate (PDF)](./documents/devcert.pdf)
 
 DeXa brings Hedera (EVM) to people with no internet or very low bandwidth by using familiar channels: USSD and WhatsApp. The project enables secure wallet creation, balance checks, and payments using simple menus (USSD) or natural language chat (WhatsApp), with multi‑language support and low fees on Hedera Testnet/Mainnet.
 
